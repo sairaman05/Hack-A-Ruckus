@@ -1,0 +1,60 @@
+/* Hide the default cursor */
+body {
+  cursor: none;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor-inner {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.custom-cursor-outer {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: outer-circle-scale 1s ease-in-out infinite;
+}
+
+/* Animation for outer circle scaling */
+@keyframes outer-circle-scale {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+/* Glow effect on click */
+.custom-cursor-glow {
+  animation: outer-circle-glow 0.5s ease-out;
+}
+
+@keyframes outer-circle-glow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}

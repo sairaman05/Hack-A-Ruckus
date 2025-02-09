@@ -1,0 +1,31 @@
+.first {
+    margin: 0;
+    background-image: url("glit.gif");
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .app_top_nav {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    margin-left: 10px;
+    background-color: black;
+  }
+  
+  .app_top_nav_text {
+    text-align: left;
+    margin-left: 20px;
+    color: grey;
+    font-size: 20px;
+    transition: font-size 0.5s ease;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .app_top_nav_text:hover {
+    font-size: 23px;
+    letter-spacing: 1;
+    color: gold
+  }
+  

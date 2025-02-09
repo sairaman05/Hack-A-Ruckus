@@ -1,0 +1,74 @@
+.event-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .event-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+  }
+  
+  .event-title {
+    color: white;
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .event-details-wrapper {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .event-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 45%;
+    background: rgba(50, 50, 50, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .event-card:hover {
+    cursor: pointer;
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.5);
+  }
+  
+  .event-name {
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+  }
+  
+  .event-description,
+  .event-timing {
+    color: #ccc;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .event-timing strong {
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .event-card {
+      max-width: 100%;
+    }
+  }
+  

@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* Fiascode */
+
+.fiascode-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: black;
+  border-radius: 200px 200px 200px 200px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: 35%;
+  width: 85%;
+  transition: all 0.3s ease;
+}
+
+.fiascode-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.fiascode-logo {
+  width: 150px;
+  height: 150px;
+  border-radius: 30%; 
+  margin-bottom: 10px;
+}
+
+.fiascode-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: red;
+}
+
+.fiascode-right {
+  flex: 1;
+  padding: 20px;
+}
+
+.fiascode-guidelines {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guidelines-item-1 {
+  margin-bottom: 15px;
+}
+
+.guidelines-row-1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.guidelines-title-1 {
+  flex-basis: 200px; 
+  font-weight: bold;
+  color: white;
+  text-align: right;
+  margin-right: 25px; 
+}
+
+.guidelines-description-1 {
+  color: whitesmoke;
+  text-align: left;
+}
+
+
+
+/*  Random Compile  */
+
+
+/* Random Compile Container */
+.random-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: black;
+  border-radius: 200px 200px 200px 200px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: 35%;
+  width: 85%;
+  transition: all 0.3s ease;
+}
+
+.random-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.randomcompilelogo {
+  width: 150px;
+  height: 150px;
+  border-radius: 30%;
+  margin-bottom: 10px;
+}
+
+.randomcompile-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: red;
+}
+
+.random-left {
+  flex: 1;
+  padding: 20px;
+}
+
+.random-guidelines {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guidelines-item-2 {
+  margin-bottom: 15px;
+}
+
+.guidelines-row-2 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.guidelines-title-2 {
+  flex-basis: 200px;
+  font-weight: bold;
+  color: white;
+  text-align: right;
+  margin-right: 25px;
+}
+
+.guidelines-description-2 {
+  color: whitesmoke;
+  text-align: left;
+}
+
