@@ -18,8 +18,8 @@ const HomeScreen = () => {
 
   const navOptions = [
     { label: "Home", page: 0 },
-    { label: "Competition Guidelines", page: 1.4 },
-    { label: "Event Organizers", page: 2 },
+    { label: "Competition Guidelines", page: 1 },
+    { label: "Event Organizers", page: 1.9 },
     { label: "Sponsors", page: 3 },
   ];
 

@@ -17,11 +17,11 @@ function Card({ image, title, category, description }) {
 }
 
 const data = [
-  { image: 'sangi.jpg', title: 'sponsers name', description: 'information about the sponsers' },
-  { image: 'sangi.jpg', title: 'sponsers name', description: 'information about the sponsers' },
-  { image: 'sangi.jpg', title: 'sponsers name', description: 'information about the sponsers' },
-  { image: 'sangi.jpg', title: 'sponsers name', description: 'information about the sponsers' },
-  { image: 'sangi.jpg', title: 'sponsers name', description: 'information about the sponsers' },
+  { image: 'sangi.jpg', title: 'sponsors name', description: 'information about the sponsors' },
+  { image: 'sangi.jpg', title: 'sponsors name', description: 'information about the sponsors' },
+  { image: 'sangi.jpg', title: 'sponsors name', description: 'information about the sponsors' },
+  { image: 'sangi.jpg', title: 'sponsors name', description: 'information about the sponsors' },
+  { image: 'sangi.jpg', title: 'sponsors name', description: 'information about the sponsors' },
 ];
 
 export function CardsCarousel() {
@@ -43,6 +43,7 @@ export function CardsCarousel() {
   return (
     
     <div className="carousel-container">
+      <h1>Event Sponsors</h1>
       <button className="nav-button prev" onClick={handlePrev}>&lt;</button>
       <div className="carousel-slide">
         {data.map((item, i) => (
