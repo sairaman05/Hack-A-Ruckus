@@ -17,11 +17,11 @@ function Card({ image, title, category, description }) {
 }
 
 const data = [
-  { image: 'sangi.jpg', title: 'Best forests in North America', category: 'Nature', description: 'Explore the beauty of the dense green forests.' },
-  { image: 'sangi.jpg', title: 'Hawaii beaches review', category: 'Beach', description: 'The best places to enjoy sun and sand.' },
-  { image: 'sangi.jpg', title: 'Mountains at night', category: 'Adventure', description: 'A breathtaking view of mountains under the stars.' },
-  { image: 'sangi.jpg', title: 'Aurora in Norway', category: 'Sky', description: 'Witness the magical northern lights.' },
-  { image: 'sangi.jpg', title: 'Desert dunes travel guide', category: 'Desert', description: 'Experience the vast and beautiful sand dunes.' },
+  { image: 'sangi.jpg', title: 'sponsers name', description: 'information about the sponsers' },
+  { image: 'sangi.jpg', title: 'sponsers name', description: 'information about the sponsers' },
+  { image: 'sangi.jpg', title: 'sponsers name', description: 'information about the sponsers' },
+  { image: 'sangi.jpg', title: 'sponsers name', description: 'information about the sponsers' },
+  { image: 'sangi.jpg', title: 'sponsers name', description: 'information about the sponsers' },
 ];
 
 export function CardsCarousel() {
