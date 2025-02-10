@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import './CardsCarousel.css';
+import CustomCursor from './CustomCursor.js';
 
-function Card({ image, title, category }) {
+
+function Card({ image, title, category, description }) {
   return (
     <div className="card-container">
       <div className="image-container" style={{ backgroundImage: `url(${image})` }}></div>
       <div className="content">
         <h3 className="title">{title}</h3>
         <p className="category">{category}</p>
+        <p className="description">{description}</p>
       </div>
     </div>
   );
 }
 
 const data = [
-  { image: 'sangi.jpg', title: 'Best forests in North America', category: 'Nature' },
-  { image: 'sangi.jpg', title: 'Hawaii beaches review', category: 'Beach' },
-  { image: 'sangi.jpg', title: 'Mountains at night', category: 'Adventure' },
-  { image: 'sangi.jpg', title: 'Aurora in Norway', category: 'Sky' },
-  { image: 'sangi.jpg', title: 'Desert dunes travel guide', category: 'Desert' },
+  { image: 'sangi.jpg', title: 'Best forests in North America', category: 'Nature', description: 'Explore the beauty of the dense green forests.' },
+  { image: 'sangi.jpg', title: 'Hawaii beaches review', category: 'Beach', description: 'The best places to enjoy sun and sand.' },
+  { image: 'sangi.jpg', title: 'Mountains at night', category: 'Adventure', description: 'A breathtaking view of mountains under the stars.' },
+  { image: 'sangi.jpg', title: 'Aurora in Norway', category: 'Sky', description: 'Witness the magical northern lights.' },
+  { image: 'sangi.jpg', title: 'Desert dunes travel guide', category: 'Desert', description: 'Experience the vast and beautiful sand dunes.' },
 ];
 
 export function CardsCarousel() {
@@ -33,11 +36,12 @@ export function CardsCarousel() {
   };
 
   useEffect(() => {
-    const interval = setInterval(handleNext, 3000); // Auto-slide every 3 sec
+    const interval = setInterval(handleNext, 3000);
     return () => clearInterval(interval);
   }, []);
 
   return (
+    
     <div className="carousel-container">
       <button className="nav-button prev" onClick={handlePrev}>&lt;</button>
       <div className="carousel-slide">
@@ -45,10 +49,7 @@ export function CardsCarousel() {
           <div
             key={i}
             className="carousel-item"
-            style={{
-              transform: `translateX(-${index * 100}%)`,
-              transition: 'transform 0.7s ease-in-out',
-            }}
+            style={{ transform: `translateX(-${index * 100}%)` }}
           >
             <Card {...item} />
           </div>
@@ -56,7 +57,7 @@ export function CardsCarousel() {
       </div>
       <button className="nav-button next" onClick={handleNext}>&gt;</button>
       <div className="progress-bar">
-        <div className="progress" style={{ width: `${((index + 1) / data.length) * 100}%` }}></div>
+        <div className="progress" style={{ width: `${((index + 1) / data.length) * 100}%`, background: 'linear-gradient(to right, #ff7e5f, #feb47b)' }}></div>
       </div>
     </div>
   );
