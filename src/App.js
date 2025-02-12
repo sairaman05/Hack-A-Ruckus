@@ -20,7 +20,7 @@ const App = () => {
 
   const particlesInit = async (main) => {
     try {
-      await loadFull(main); // Ensures tsparticles is properly initialized
+      await loadFull(main); 
     } catch (error) {
       console.error("Error initializing particles:", error);
     }

@@ -192,7 +192,6 @@ const HomeScreen = () => {
             offset={4}
             speed={1}
             style={{
-              bottom: 0,
               position: "absolute",
             }}
           >
