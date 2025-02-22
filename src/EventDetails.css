@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;700&display=swap');
+
 .event-container {
     padding: 20px;
     display: flex;
@@ -50,31 +52,19 @@
   }
 
   .Head {
-    position: relative;
-    animation: float 3s ease-in-out infinite;
+  position: relative;
+  animation: subtle-float 4s ease-in-out infinite;
+}
+
+  @keyframes subtle-float {
+    0%, 100% { transform: translateY(0) rotate(-0.5deg); }
+    50% { transform: translateY(-5px) rotate(0.5deg); }
   }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(-2deg); }
-    50% { transform: translateY(-10px) rotate(-3deg); }
-  }
-  
-  .Head::before {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 4px;
-    background: linear-gradient(90deg, transparent 0%, #4ecdc4 50%, transparent 100%);
-    transition: all 0.3s ease;
-  }
-  
-  .Head:hover::before {
-    width: 100%;               
-    height: 6px;
-    background: linear-gradient(90deg, #ff6b6b 0%, #4ecdc4 50%, #ff6b6b 100%);
+
+  .Head:hover {
+    transform: scale(1.02) rotate(0deg);
+    text-shadow: 2px 3px 7px rgba(0,0,0,0.3);
+    border-color: #ff6b6b #4ecdc4;
   }
   
   .event-name {               

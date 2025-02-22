@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, progress } from "framer-motion";
 import Profile from "./Profile";
-import sangi from './sangi.jpg';
+import profile_pic from "./profile_pic.jpg"
 import CustomCursor from "./CustomCursor";
 
 export default function EventDetails() {
@@ -12,25 +12,29 @@ export default function EventDetails() {
   return (
     
     <div>
+      <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
     <h1 className="Head" style={{
-      textAlign: 'center',
       fontSize: '4rem',
       background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
-      fontFamily: "'Poppins', sans-serif",
-      fontWeight: 800,
-      textTransform: 'uppercase',
+      fontFamily: "'Bebas Neue', cursive",
+      fontWeight: 400,
       letterSpacing: '6px',
-      textShadow: '2px 4px 6px rgba(0,0,0,0.15)',
-      margin: '2rem 0',
+      textShadow: '2px 3px 5px rgba(0,0,0,0.2)',
+      padding: '0 2rem',
+      borderBottom: '3px solid #4ecdc4',
+      borderTop: '3px solid #ff6b6b',
+      borderRadius: '8px',
+      transition: 'all 0.4s ease-in-out',
       position: 'relative',
-      display: 'inline-block',
-      transform: 'rotate(-2deg)',
-      padding: '0 2rem'
+      margin: '2rem 0',
+      textAlign: 'center',
+      transform: 'rotate(-0.5deg)',
     }}>
       EVENT ORGANIZERS
     </h1>
+</div>
     <br />
     <div
       style={{
@@ -85,9 +89,48 @@ export default function EventDetails() {
             }}
           />
           <div>
-            <motion.h1 layout="position" style={{ color: "white", margin: 0 }}>
-              FIAS CODE
-            </motion.h1>
+          <motion.h1 
+            layout="position" 
+            style={{ 
+              color: "#fff",
+              fontSize: "2.5rem",
+              margin: 0,
+              fontFamily: "'Poppins', sans-serif",
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "2px",
+              background: "linear-gradient(45deg, #ff6b6b, #4ecdc4)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+              transition: "all 0.3s ease",
+              cursor: "pointer",
+              position: "relative",
+              padding: "0.5rem 1rem",
+              borderRadius: "8px",
+              "&:hover": {
+                transform: "scale(1.05) rotate(-1deg)",
+                boxShadow: "0 4px 15px rgba(78, 205, 196, 0.3)"
+              }
+            }}
+          >
+            FIASCOde
+            <motion.span 
+                  style={{
+                    position: "absolute",
+                    bottom: "-5px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    width: "80%",
+                    height: "3px",
+                    background: "linear-gradient(90deg, transparent, #4ecdc4, transparent)",
+                    opacity: 0.7
+                  }}
+                  initial={{ width: 0 }}
+                  animate={{ width: "80%" }}
+                  transition={{ duration: 0.5 }}
+                />
+              </motion.h1>
             {expandOne && (
               <motion.p
                 layout="position"
@@ -100,9 +143,6 @@ export default function EventDetails() {
                   lineHeight: "1.5",
                 }}
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-                blanditiis labore esse aspernatur veritatis. At magni
-                reprehenderit repudiandae beatae iure!
               </motion.p>
             )}
           </div>
@@ -126,15 +166,15 @@ export default function EventDetails() {
           >
             <Profile
               name="Nithya Shankar"
-              email="sample@mail.com"
-              profile_pic={"sangi"}
-              phone="+91 15678"
+              email="swayamlogin6283@gmail.com"
+              profile_pic={profile_pic}
+              phone="9956603536"
             />
             <Profile
-              name="Vignesh"
-              email="smaple@gmail.com"
-              profile_pic={"null"}
-              phone="+91 15678"
+              name="Vignesheshwarran S"
+              email="vigneshwarran0@gmail.com"
+              profile_pic={profile_pic}
+              phone="8015918525"
             />
           </motion.div>
         )}
@@ -184,8 +224,47 @@ export default function EventDetails() {
             }}
           />
           <div>
-            <motion.h1 layout="position" style={{ color: "white", margin: 0 }}>
-              RANDOM COMPILE
+          <motion.h1 
+              layout="position" 
+              style={{ 
+                color: "#fff",
+                fontSize: "2.5rem",
+                margin: 0,
+                fontFamily: "'Poppins', sans-serif",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "2px",
+                background: "linear-gradient(45deg, #ff6b6b, #4ecdc4)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+                transition: "all 0.3s ease",
+                cursor: "pointer",
+                position: "relative",
+                padding: "0.5rem 1rem",
+                borderRadius: "8px",
+                "&:hover": {
+                  transform: "scale(1.05) rotate(-1deg)",
+                  boxShadow: "0 4px 15px rgba(78, 205, 196, 0.3)"
+                }
+              }}
+            >
+              RANDOM COMPILE 
+              <motion.span 
+                style={{
+                  position: "absolute",
+                  bottom: "-5px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "80%",
+                  height: "3px",
+                  background: "linear-gradient(90deg, transparent, #4ecdc4, transparent)",
+                  opacity: 0.7
+                }}
+                initial={{ width: 0 }}
+                animate={{ width: "80%" }}
+                transition={{ duration: 0.5 }}
+              />
             </motion.h1>
             {expandTwo && (
               <motion.p
@@ -199,9 +278,6 @@ export default function EventDetails() {
                   lineHeight: "1.5",
                 }}
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-                blanditiis labore esse aspernatur veritatis. At magni
-                reprehenderit repudiandae beatae iure!
               </motion.p>
             )}
           </div>
@@ -225,16 +301,16 @@ export default function EventDetails() {
             }}
           >
             <Profile
-              name="Sanjjey"
-              email="sample@mail.com"
-              profile_pic={"null"}
-              phone="+91 15678"
+              name="Sanjjey A"
+              email="sanjjeyarumugam@gmail.com"
+              profile_pic={profile_pic}
+              phone="9443582753"
             />
             <Profile
-              name="Mukesh Charan"
-              email="smaple@gmail.com"
-              profile_pic={"null"}
-              phone="+91 15678"
+              name="Mukesh Charan M"
+              email="mukeshcharanskillboost@gmail.com"
+              profile_pic={profile_pic}
+              phone="6381764163"
             />
           </motion.div>
         )}
