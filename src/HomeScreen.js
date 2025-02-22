@@ -156,25 +156,25 @@ const HomeScreen = ({onLogin}) => {
             </Suspense>
           </ParallaxLayer>
 
-          <ParallaxLayer offset={0.9} speed={1} style={{ display: "flex", alignItems: "center", justifyContent: "center"}}>
+          <ParallaxLayer offset={1} speed={1} style={{ display: "flex", alignItems: "center", justifyContent: "center"}}>
             <Suspense fallback={<div>Loading...</div>}>
               <CompetitionGuidelines />
             </Suspense>
           </ParallaxLayer>
 
-          <ParallaxLayer offset={1.9} speed={1} style={{ zIndex: 40 }}>
+          <ParallaxLayer offset={2} speed={1} style={{ zIndex: 40 }}>
             <Suspense fallback={<div>Loading...</div>}>
               <EventDetails />
             </Suspense>
           </ParallaxLayer>
 
-          <ParallaxLayer offset={2.9} speed={1} style={{ display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
+          <ParallaxLayer offset={3} speed={1} style={{ display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
             <Suspense fallback={<div>Loading...</div>}>
               <CardsCarousel />
             </Suspense>
           </ParallaxLayer>
 
-          <ParallaxLayer offset={3.9} speed={1} style={{ position: "absolute", bottom: 0 }}>
+          <ParallaxLayer offset={4} speed={1} style={{ position: "absolute", bottom: 0 }}>
             <Suspense fallback={<div>Loading...</div>}>
               <LinkScreen />
             </Suspense>
