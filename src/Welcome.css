@@ -2,8 +2,44 @@
 
 body {
   background-color: #010;
+  margin: 0;
+  padding: 0;
 }
 
+.welcome-container {
+  position: relative;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.user-info {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  z-index: 110;
+}
+
+.user-icon {
+  color: white;
+  font-size: 24px;
+}
+
+.user-name {
+  color: #f8b400;
+  font-weight: bold;
+  font-size: 22px;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Main Welcome Text */
 .welcome-text {
   text-align: center;
   color: white;
@@ -43,4 +79,8 @@ body {
 
 .animated-text {
   display: inline-block;
+}
+
+.user-info, .welcome-text {
+  z-index: 110;
 }

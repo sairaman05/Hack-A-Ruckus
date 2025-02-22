@@ -1,21 +1,24 @@
 import React, { useRef, lazy, Suspense, useState, useEffect } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import "./NavExpandStyles.css";
-import Box from "@mui/material/Box";
 import CustomCursor from "./CustomCursor";
+import { auth } from './utils/firebase.utils';
+import { signInWithGooglePopup } from "./utils/firebase.utils";
+import { useNavigate } from "react-router-dom";
 
 // Lazy load components
 const Welcome = lazy(() => import("./Welcome"));
 const CompetitionGuidelines = lazy(() => import("./CompetitionGuideLines"));
 const EventDetails = lazy(() => import("./EventDetails"));
 const CardsCarousel = lazy(() => import("./CardsCarousel"));
-const LinkScreen = lazy(() => import("./LinkScreen"))
+const LinkScreen = lazy(() => import("./LinkScreen"));
 
-const HomeScreen = () => {
+
+const HomeScreen = ({onLogin}) => {
   const parallaxRef = useRef(null);
   const [scrolling, setScrolling] = useState(false); // Track scroll state
   const [lastScrollY, setLastScrollY] = useState(0); // Track the last scroll position
-
+  const navigate = useNavigate()
   const navOptions = [
     { label: "Home", page: 0 },
     { label: "Competition Guidelines", page: 1 },
@@ -29,100 +32,110 @@ const HomeScreen = () => {
     }
   };
 
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithGooglePopup();
+      onLogin(result.user);
+      navigate("/");
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
+  };
+
+
   useEffect(() => {
-    // Function to track scroll direction
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        // Scrolling down
-        setScrolling(true);
-      } else {
-        // Scrolling up
-        setScrolling(false);
-      }
-      setLastScrollY(window.scrollY); // Update the last scroll position
+      setScrolling(window.scrollY > lastScrollY);
+      setLastScrollY(window.scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
   return (
-    
     <div style={{ position: "relative", height: "100vh", width: "100%" }}>
       <CustomCursor />
+
       {/* Top Navigation Bar */}
       <div
         style={{
           position: "absolute",
-          top: scrolling ? "-60px" : "20px", // Hide on scroll down, show on scroll up
+          top: scrolling ? "-60px" : "20px",
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 100,
           display: "flex",
-          backgroundColor: "rgba(0, 0, 0, 0.8)", // Black background with reduced opacity
+          alignItems: "center",
+          backgroundColor: "rgba(0, 0, 0, 0.8)",
           borderRadius: "12px",
           padding: "10px 20px",
           boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-          backdropFilter: "blur(10px)", // Glassy feel
+          backdropFilter: "blur(10px)",
           border: "2px solid transparent",
           backgroundClip: "padding-box",
-          animation: "glow-border 5s infinite linear", // Smooth moving color border
-          transition: "top 0.3s ease", // Smooth transition when hiding/showing
+          animation: "glow-border 5s infinite linear",
+          transition: "top 0.3s ease",
         }}
       >
+        {/* Navigation Links */}
         {navOptions.map((item, index) => (
           <div
             key={index}
             onClick={() => scrollToSection(item.page)}
             style={{
-              padding: "10px 20px",
+              padding: "12px 24px",
               cursor: "pointer",
-              position: "relative",
               fontSize: "16px",
               color: "#FFFFFF",
-              textAlign: "center",
               margin: "0 10px",
               borderRadius: "8px",
-              overflow: "hidden",
               border: "1px solid rgba(255, 255, 255, 0.2)",
-              backdropFilter: "blur(5px)", // Adding a subtle blur to buttons
-              transition: "all 0.3s ease", // Smooth transition on hover
+              backdropFilter: "blur(5px)",
+              transition: "all 0.3s ease",
             }}
             onMouseEnter={(e) => {
-              const target = e.currentTarget;
-              target.style.backgroundColor = "rgba(255, 255, 255, 0.1)"; // Transparent white on hover
-              target.style.color = "#FFD700";
-              target.style.boxShadow = "0px 0px 20px 5px rgba(255, 215, 0, 0.6)";
-              target.style.transform = "scale(1.05)"; // Slight scale up
+              e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+              e.currentTarget.style.color = "#FFD700";
+              e.currentTarget.style.boxShadow = "0px 0px 20px 5px rgba(255, 215, 0, 0.6)";
+              e.currentTarget.style.transform = "scale(1.05)";
             }}
             onMouseLeave={(e) => {
-              const target = e.currentTarget;
-              target.style.backgroundColor = "rgba(0, 0, 0, 0.2)"; // Original dark state
-              target.style.color = "#FFFFFF";
-              target.style.boxShadow = "none";
-              target.style.transform = "scale(1)"; // Reset scale
+              e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
+              e.currentTarget.style.color = "#FFFFFF";
+              e.currentTarget.style.boxShadow = "none";
+              e.currentTarget.style.transform = "scale(1)";
             }}
           >
-            <span
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                height: "100%",
-                width: "100%",
-                background: "linear-gradient(90deg, #FFB6C1, #FF6347)", // Brighter gradient
-                transform: "translateX(-100%)",
-                zIndex: -1,
-                transition: "transform 0.3s ease",
-              }}
-              className="hover-bg"
-            ></span>
             {item.label}
           </div>
         ))}
+
+        {/* Login/Signup Button */}
+        <div
+          onClick={auth?.currentUser ? () => auth.signOut() : handleGoogleLogin}
+          style={{
+            padding: "10px 20px",
+            cursor: "pointer",
+            fontSize: "16px",
+            color: "#FFFFFF",
+            marginLeft: "20px",
+            borderRadius: "8px",
+            backgroundColor: "#FF4500",
+            border: "2px solid transparent",
+            transition: "all 0.3s ease",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = "#FFD700";
+            e.currentTarget.style.color = "#000";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = "#FF4500";
+            e.currentTarget.style.color = "#FFFFFF";
+          }}
+        >
+           {auth?.currentUser ? "Sign Out" : "Login"}
+        </div>
       </div>
 
       {/* Main Content */}
@@ -137,69 +150,36 @@ const HomeScreen = () => {
               backgroundSize: "cover",
             }}
           />
-          <ParallaxLayer
-            offset={0}
-            speed={1}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              zIndex: 1,
-            }}
-          >
+          <ParallaxLayer offset={0} speed={1} style={{ display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1 }}>
             <Suspense fallback={<div>Loading...</div>}>
               <Welcome />
             </Suspense>
           </ParallaxLayer>
 
-          <ParallaxLayer
-            offset={1}
-            speed={1}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <ParallaxLayer offset={0.9} speed={1} style={{ display: "flex", alignItems: "center", justifyContent: "center"}}>
             <Suspense fallback={<div>Loading...</div>}>
               <CompetitionGuidelines />
             </Suspense>
           </ParallaxLayer>
 
-          <ParallaxLayer offset={2} speed={1} style={{ zIndex: 40 }}>
+          <ParallaxLayer offset={1.9} speed={1} style={{ zIndex: 40 }}>
             <Suspense fallback={<div>Loading...</div>}>
               <EventDetails />
             </Suspense>
           </ParallaxLayer>
 
-          <ParallaxLayer
-            offset={3}
-            speed={1}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexDirection: "column",
-            }}
-          >
+          <ParallaxLayer offset={2.9} speed={1} style={{ display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
             <Suspense fallback={<div>Loading...</div>}>
               <CardsCarousel />
             </Suspense>
           </ParallaxLayer>
-        
 
-        <ParallaxLayer
-            offset={4}
-            speed={1}
-            style={{
-              position: "absolute",
-            }}
-          >
+          <ParallaxLayer offset={3.9} speed={1} style={{ position: "absolute", bottom: 0 }}>
             <Suspense fallback={<div>Loading...</div>}>
               <LinkScreen />
             </Suspense>
           </ParallaxLayer>
-      </Parallax>
+        </Parallax>
       </div>
 
       {/* Animation for dynamic border */}
@@ -229,7 +209,6 @@ const HomeScreen = () => {
           }
         `}
       </style>
-
     </div>
   );
 };

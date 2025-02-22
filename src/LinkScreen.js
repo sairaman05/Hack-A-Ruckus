@@ -1,41 +1,46 @@
 import React from "react";
 import "./LinkScreenStyles.css";
+import sangiImage from './sangi.jpg';  
+
 
 export default function LinkScreen({ scrollToSection }) {
   return (
     <>
-      {/* Top blue line with title */}
-      <div className="footer-title">HACK-A-RUCKUS</div>
-      
-      <div className="footer-content">
-        {/* Left section with details */}
-        <div className="footer-column">
-          <h4>Social Media Links</h4>
-          <div className="hover-line">
-            <a href="https://www.instagram.com">Instagram</a>
-            <a href="https://www.facebook.com">Facebook</a>
-            <a href="https://www.twitter.com">Twitter</a>
-          </div>
-
-          <h4>Address</h4>
-          <div className="hover-line">
-            <p>337/1 A, Vallal RCK Nagar, SH 50A, Vengal, Tamil Nadu 601103</p>
-            <a href="https://www.google.com/maps?q=337/1+A,+Vallal+RCK+Nagar,+SH+50A,+Vengal,+Tamil+Nadu+601103">Map</a>
-          </div>
+      {/* Red Section */}
+      <div className="red-section">
+        <div className="logo-container">
+          <h1 className="logo-text">NEUR</h1>
+          <img src={sangiImage} alt="Logo" className="logo-img" />
+          <h1 className="logo-text">ONIX</h1>
         </div>
-        
-        {/* Middle section with contact details */}
+      </div>
+
+      {/* Black Section */}
+      <div className="black-section">
         <div className="footer-column">
-          <h4>Contact Details</h4>
-          <div className="hover-line">
-            <p>Phone: <a href="tel:+919965503536">+91 99655 03536</a></p>
-          </div>
-          <button className="button-78" onClick={() => scrollToSection(0)}>Move to Top</button>
+          <h4>Get in touch</h4>
+          <p>ahhh uhhhh </p>
+          <p>uhhhh ahhhh</p>
         </div>
 
-        {/* Right section with image */}
-        <div className="footer-column footer-image">
-          <img src="/mnt/data/image.png" alt="Footer Graphic" className="footer-graphic" />
+        <div className="footer-column">
+          <h4>Connect</h4>
+          <a href="https://www.linkedin.com">LinkedIn</a>
+          <a href="https://www.instagram.com">Instagram</a>
+        </div>
+
+        <div className="footer-column">
+          <h4>hi nga</h4>
+          <p>therila bhaa</p>
+          <p>yosikanum</p>
+          <p>bye</p>
+        </div>
+
+        <div className="footer-column">
+          <h4>hello</h4>
+          <p>i dont know what to say here uh</p>
+          <p>chumma nga </p>
+          <p>10999</p>
         </div>
       </div>
     </>

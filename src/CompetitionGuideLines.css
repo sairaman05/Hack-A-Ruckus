@@ -71,6 +71,31 @@
   text-align: left;
 }
 
+.Header {
+  text-align: center;
+  font-size: 3.2rem;
+  color: #2c3e50;
+  margin-bottom: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 800;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.Header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b6b 0%, #4ecdc4 100%);
+  border-radius: 2px;
+}
+
+
 
 
 /*  Random Compile  */

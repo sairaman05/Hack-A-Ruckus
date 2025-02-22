@@ -41,7 +41,7 @@ export default function CompetitionGuideLines() {
 
   return (
     <div>
-      <h1 style={{ color: 'white' }}> ----- COMPETITION  GUIDELINES ----- </h1>
+      <h1 className="Header"> COMPETITION  GUIDELINES </h1>
       <Competition logo={fiascode_logo} title={"FIAS CODE"} information={FIAS_CODE} />
       <br />
       <Competition logo={random_logo} title={"RaNDoM COmPilE"} information={FIAS_CODE} />

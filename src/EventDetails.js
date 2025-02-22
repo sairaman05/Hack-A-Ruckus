@@ -12,7 +12,25 @@ export default function EventDetails() {
   return (
     
     <div>
-    <h1 style={{ color: 'white', textAlign: 'center' }}> ----- EVENT ORGANIZERS -----</h1>
+    <h1 className="Head" style={{
+      textAlign: 'center',
+      fontSize: '4rem',
+      background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      fontFamily: "'Poppins', sans-serif",
+      fontWeight: 800,
+      textTransform: 'uppercase',
+      letterSpacing: '6px',
+      textShadow: '2px 4px 6px rgba(0,0,0,0.15)',
+      margin: '2rem 0',
+      position: 'relative',
+      display: 'inline-block',
+      transform: 'rotate(-2deg)',
+      padding: '0 2rem'
+    }}>
+      EVENT ORGANIZERS
+    </h1>
     <br />
     <div
       style={{

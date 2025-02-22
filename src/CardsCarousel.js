@@ -1,64 +1,98 @@
 import React, { useState, useEffect } from 'react';
 import './CardsCarousel.css';
-import CustomCursor from './CustomCursor.js';
 
+const data = [
+  { image: 'sangi.jpg', title: 'Sponsor-1', description: 'Information about the Sponsors' },
+  { image: 'sangi.jpg', title: 'Sponsor-2', description: 'Information about the Sponsors' },
+  { image: 'sangi.jpg', title: 'Sponsor-3', description: 'Information about the Sponsors' },
+  { image: 'sangi.jpg', title: 'Sponsor-4', description: 'Information about the Sponsors' },
+  { image: 'sangi.jpg', title: 'Sponsor-6', description: 'Information about the Sponsors' },
+];
 
-function Card({ image, title, category, description }) {
+function Card({ image, title, description }) {
   return (
-    <div className="card-container">
-      <div className="image-container" style={{ backgroundImage: `url(${image})` }}></div>
-      <div className="content">
-        <h3 className="title">{title}</h3>
-        <p className="category">{category}</p>
-        <p className="description">{description}</p>
+    <div className="card">
+      <div className="card-image" style={{ backgroundImage: `url(${image})` }}>
+        <div className="image-overlay"></div>
+      </div>
+      <div className="card-content">
+        <h3 className="card-title">{title}</h3>
+        <p className="card-description">{description}</p>
+        <div className="card-shine"></div>
       </div>
     </div>
   );
 }
 
-const data = [
-  { image: 'sangi.jpg', title: 'sponsors name', description: 'information about the sponsors' },
-  { image: 'sangi.jpg', title: 'sponsors name', description: 'information about the sponsors' },
-  { image: 'sangi.jpg', title: 'sponsors name', description: 'information about the sponsors' },
-  { image: 'sangi.jpg', title: 'sponsors name', description: 'information about the sponsors' },
-  { image: 'sangi.jpg', title: 'sponsors name', description: 'information about the sponsors' },
-];
-
 export function CardsCarousel() {
   const [index, setIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleNext = () => {
-    setIndex((prevIndex) => (prevIndex + 1) % data.length);
+    setIndex((prev) => (prev + 1) % data.length);
   };
 
   const handlePrev = () => {
-    setIndex((prevIndex) => (prevIndex - 1 + data.length) % data.length);
+    setIndex((prev) => (prev - 1 + data.length) % data.length);
   };
 
   useEffect(() => {
-    const interval = setInterval(handleNext, 3000);
-    return () => clearInterval(interval);
-  }, []);
+    if (!isHovered) {
+      const interval = setInterval(handleNext, 5000);
+      return () => clearInterval(interval);
+    }
+  }, [isHovered, index]);
+
+  const calculatePosition = (i) => {
+    const position = i - index;
+    const total = data.length;
+    
+    let angle = (position * 180) / total;
+    if (angle > 90) angle = 180 - angle;
+    if (angle < -90) angle = -180 - angle;
+    
+    return {
+      rotateY: angle,
+      translateZ: position !== 0 ? Math.cos(Math.abs(angle) * Math.PI / 180) * 600 - 200 : 0,
+      translateX: position * 160,
+      opacity: 1 - Math.abs(position) * 0.3,
+      zIndex: data.length - Math.abs(position),
+      scale: 1 - Math.abs(position) * 0.15
+    };
+  };
 
   return (
-    
-    <div className="carousel-container">
-      <h1>Event Sponsors</h1>
-      <button className="nav-button prev" onClick={handlePrev}>&lt;</button>
-      <div className="carousel-slide">
-        {data.map((item, i) => (
-          <div
-            key={i}
-            className="carousel-item"
-            style={{ transform: `translateX(-${index * 100}%)` }}
-          >
-            <Card {...item} />
-          </div>
-        ))}
-      </div>
-      <button className="nav-button next" onClick={handleNext}>&gt;</button>
-      <div className="progress-bar">
-        <div className="progress" style={{ width: `${((index + 1) / data.length) * 100}%`, background: 'linear-gradient(to right, #ff7e5f, #feb47b)' }}></div>
+    <div 
+      className="carousel-container"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <h1 className="carousel-header">Our Valued Partners</h1>
+      <div className="carousel-wrapper">
+        <button className="nav-button prev" onClick={handlePrev} aria-label="Previous" />
+        <button className="nav-button next" onClick={handleNext} aria-label="Next" />
+        
+        <div className="cards-stage">
+          {data.map((item, i) => {
+            const style = calculatePosition(i);
+            return (
+              <div 
+                key={i}
+                className="card-container"
+                style={{
+                  transform: `rotateY(${style.rotateY}deg) 
+                             translateZ(${style.translateZ}px)
+                             translateX(${style.translateX}px)
+                             scale(${style.scale})`,
+                  opacity: style.opacity,
+                  zIndex: style.zIndex
+                }}
+              >
+                <Card {...item} />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
