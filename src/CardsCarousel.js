@@ -67,7 +67,27 @@ export function CardsCarousel() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <h1 className="carousel-header">Our Valued Partners</h1>
+      <h1 className="Head" style={{
+      fontSize: '4rem',
+      background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      fontFamily: "'Bebas Neue', cursive",
+      fontWeight: 400,
+      letterSpacing: '6px',
+      textShadow: '2px 3px 5px rgba(0,0,0,0.2)',
+      padding: '0 2rem',
+      borderBottom: '3px solid #4ecdc4',
+      borderTop: '3px solid #ff6b6b',
+      borderRadius: '8px',
+      transition: 'all 0.4s ease-in-out',
+      position: 'relative',
+      margin: '2rem 0',
+      textAlign: 'center',
+      transform: 'rotate(-0.5deg)',
+    }}>
+      OUR VALUED SPONSORS
+    </h1>
       <div className="carousel-wrapper">
         <button className="nav-button prev" onClick={handlePrev} aria-label="Previous" />
         <button className="nav-button next" onClick={handleNext} aria-label="Next" />

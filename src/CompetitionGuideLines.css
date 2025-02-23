@@ -71,32 +71,21 @@
   text-align: left;
 }
 
-.Header {
-  text-align: center;
-  font-size: 2.2rem;
-  color: #2c3e50;
-  margin-bottom: 4rem;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-weight: 800;
+.Head {
   position: relative;
-  padding-bottom: 1rem;
+  animation: subtle-float 4s ease-in-out infinite;
 }
 
-.Header::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 4px;
-  background: linear-gradient(90deg, #ff6b6b 0%, #4ecdc4 100%);
-  border-radius: 2px;
-}
+  @keyframes subtle-float {
+    0%, 100% { transform: translateY(0) rotate(-0.5deg); }
+    50% { transform: translateY(-5px) rotate(0.5deg); }
+  }
 
-
-
+  .Head:hover {
+    transform: scale(1.02) rotate(0deg);
+    text-shadow: 2px 3px 7px rgba(0,0,0,0.3);
+    border-color: #ff6b6b #4ecdc4;
+  }
 
 /*  Random Compile  */
 
