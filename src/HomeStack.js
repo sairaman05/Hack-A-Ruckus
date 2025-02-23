@@ -1,66 +1,98 @@
-import React, { useState, useEffect } from "react";
-import { Suspense, lazy } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
+import { Engine } from "tsparticles-engine";
+import { loadSlim } from "tsparticles-slim";
 import "./App.css";
 import CustomCursor from "./CustomCursor";
 
 const HomeScreen = lazy(() => import("./HomeScreen"));
 
-const HomeStack = ({onLogin}) => {
+const HomeStack = ({ onLogin }) => {
   const [showWelcome, setShowWelcome] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowWelcome(false);
-    }, 4000); // Welcome screen duration
-
+    }, 4000);
     return () => clearTimeout(timer);
   }, []);
 
-  const particlesInit = async (main) => {
+  const particlesInit = async (engine) => {
     try {
-      await loadFull(main); 
+      await loadSlim(engine);
     } catch (error) {
       console.error("Error initializing particles:", error);
     }
   };
 
+  // Updated particles configuration
   const particlesOptions = {
-    fullScreen: { enable: false },
-    background: {
-      color: { value: "#000" },
-    },
     particles: {
-      number: { value: 100, density: { enable: true, value_area: 800 } },
-      color: { value: ["#4facfe", "#00f2fe"] },
-      shape: { type: "circle" },
-      opacity: { value: 0.7, random: true },
-      size: { value: 5, random: true },
+      number: {
+        value: 80,
+        density: {
+          enable: true,
+          value_area: 800,
+        },
+      },
+      color: {
+        value: "#ffffff",
+      },
+      shape: {
+        type: "circle",
+      },
+      opacity: {
+        value: 0.5,
+        random: false,
+      },
+      size: {
+        value: 3,
+        random: true,
+      },
+      links: {
+        enable: true,
+        distance: 150,
+        color: "#ffffff",
+        opacity: 0.4,
+        width: 1,
+      },
       move: {
         enable: true,
         speed: 2,
         direction: "none",
         random: false,
         straight: false,
-        outModes: { default: "out" },
+        out_mode: "out",
+        bounce: false,
       },
     },
     interactivity: {
       events: {
-        onHover: { enable: true, mode: "repulse" },
-        onClick: { enable: true, mode: "push" },
+        onhover: {
+          enable: true,
+          mode: "repulse",
+        },
+        onclick: {
+          enable: true,
+          mode: "push",
+        },
       },
       modes: {
-        repulse: { distance: 100 },
-        push: { quantity: 4 },
+        repulse: {
+          distance: 100,
+          duration: 0.4,
+        },
+        push: {
+          particles_nb: 4,
+        },
       },
     },
+    retina_detect: true,
   };
 
   return (
-    <div>
-      <useCanvasCursor />
+    <div className="app-container">
+      <CustomCursor />
       {showWelcome && (
         <div className="welcome-screen">
           <Particles

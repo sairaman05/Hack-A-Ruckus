@@ -182,7 +182,6 @@ const HomeScreen = ({onLogin}) => {
         </Parallax>
       </div>
 
-      {/* Animation for dynamic border */}
       <style>
         {`
           @keyframes glow-border {
