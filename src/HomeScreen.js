@@ -6,7 +6,6 @@ import { auth } from './utils/firebase.utils';
 import { signInWithGooglePopup } from "./utils/firebase.utils";
 import { useNavigate } from "react-router-dom";
 import { isMobile } from 'react-device-detect';
-import { Analytics } from "@vercel/analytics/react"
 
 // Lazy load components
 const Welcome = lazy(() => import("./Welcome"));
@@ -55,7 +54,6 @@ const HomeScreen = ({onLogin}) => {
 
   return (
     <div style={{ position: "relative", height: "100vh", width: "100%" }}>
-      <Analytics />
       {!isMobile && <CustomCursor />}
 
       {/* Top Navigation Bar */}
