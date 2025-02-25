@@ -86,9 +86,11 @@ export function CardsCarousel() {
       margin: '2rem 0',
       textAlign: 'center',
       transform: 'rotate(-0.5deg)',
-      width: "800px",
+      width: "700px",
       justifyContent: "center",
       alignItems: "center",
+      position: "relative",
+      left: "24%",
     }}>
       OUR VALUED SPONSORS
     </h1>
