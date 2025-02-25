@@ -6,6 +6,7 @@ import { auth } from './utils/firebase.utils';
 import { signInWithGooglePopup } from "./utils/firebase.utils";
 import { useNavigate } from "react-router-dom";
 import { isMobile } from 'react-device-detect';
+import "./RegisterScreen.css";
 
 // Lazy load components
 const Welcome = lazy(() => import("./Welcome"));
@@ -56,14 +57,12 @@ const HomeScreen = ({onLogin}) => {
     <div style={{ position: "relative", height: "100vh", width: "100%" }}>
       {!isMobile && <CustomCursor />}
 
-      {/* Top Navigation Bar */}
       <div
         className="nav-container"
         style={{
           top: scrolling ? "-60px" : "20px",
         }}
       >
-        {/* Navigation Links */}
         {navOptions.map((item, index) => (
           <div
             key={index}
@@ -74,6 +73,15 @@ const HomeScreen = ({onLogin}) => {
           </div>
         ))}
 
+        
+        <div
+          onClick={() => navigate("/teamform")} 
+          className="accomodationbutton"
+        >
+          Accomodation
+        </div>
+
+
         {/* Login/Signup Button */}
         <div
           onClick={auth?.currentUser ? () => auth.signOut() : handleGoogleLogin}
@@ -81,6 +89,7 @@ const HomeScreen = ({onLogin}) => {
         >
           {auth?.currentUser ? "Sign Out" : "Login"}
         </div>
+
       </div>
 
       {/* Main Content */}
@@ -164,6 +173,19 @@ const HomeScreen = ({onLogin}) => {
           }
 
           .login-button {
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #FFFFFF;
+            margin-left: 10px;
+            border-radius: 8px;
+            background-color: #FF4500;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+          }
+
+          .accomodationbutton {
             padding: 8px 16px;
             cursor: pointer;
             font-size: 14px;

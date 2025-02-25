@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Analytics } from "@vercel/analytics/react"
 import {
   BrowserRouter as Router,
   Route,
@@ -9,8 +8,9 @@ import {
 } from "react-router-dom";
 import { signInWithGooglePopup, auth } from "./utils/firebase.utils";
 import { onAuthStateChanged } from "firebase/auth";
-
+import TeamForm from "./TeamForm";
 import HomeStack from "./HomeStack";
+import { Analytics } from "@vercel/analytics/react";
 
 
 const App = () => {
@@ -30,6 +30,7 @@ const App = () => {
 
   return (
     <Router>
+      <Analytics />
       <Routes>
         <Route
           path="/"
@@ -37,9 +38,8 @@ const App = () => {
               <HomeStack onLogin={setUser} />
           }
         />
-      
+        <Route path="/teamform" element={<TeamForm />} />
       </Routes>
-      <Analytics />
     </Router>
   );
 };

@@ -68,6 +68,7 @@ export function CardsCarousel() {
       onMouseLeave={() => setIsHovered(false)}
     >
       <h1 className="Head" style={{
+        display: "flex",
       fontSize: '4rem',
       background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
       WebkitBackgroundClip: 'text',
@@ -85,6 +86,9 @@ export function CardsCarousel() {
       margin: '2rem 0',
       textAlign: 'center',
       transform: 'rotate(-0.5deg)',
+      width: "800px",
+      justifyContent: "center",
+      alignItems: "center",
     }}>
       OUR VALUED SPONSORS
     </h1>
