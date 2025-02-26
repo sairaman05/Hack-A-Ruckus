@@ -73,13 +73,14 @@ const HomeScreen = ({onLogin}) => {
           </div>
         ))}
 
-        
+        {/* 
         <div
           onClick={() => navigate("/teamform")} 
           className="accomodationbutton"
         >
           Accomodation
         </div>
+        */}
 
 
         {/* Login/Signup Button */}
@@ -130,7 +131,7 @@ const HomeScreen = ({onLogin}) => {
             </Suspense>
           </ParallaxLayer>
 
-          <ParallaxLayer offset={4} speed={1} style={{ position: "absolute", bottom: 0 }}>
+          <ParallaxLayer offset={4} speed={1} style={{ position: "absolute", bottom: 0}}>
             <Suspense fallback={<div>Loading...</div>}>
               <LinkScreen />
             </Suspense>
