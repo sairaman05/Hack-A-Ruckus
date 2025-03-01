@@ -6,6 +6,7 @@ import shankar from "./shankar.jpg";
 import wild from "./wild.jpg";
 import vicky from "./vigneshwarran.jpg";
 import CustomCursor from "./CustomCursor";
+import mugi from "./mugi.jpg";
 
 export default function EventDetails() {
   
@@ -170,13 +171,13 @@ export default function EventDetails() {
             <Profile
               name="Nithya Shankar"
               email="swayamlogin6283@gmail.com"
-              profile_pic={profile_pic}
+              profile_pic={shankar}
               phone="9956603536"
             />
             <Profile
               name="Vignesheshwarran S"
               email="vigneshwarran0@gmail.com"
-              profile_pic={profile_pic}
+              profile_pic={vicky}
               phone="8015918525"
             />
           </motion.div>
@@ -306,13 +307,13 @@ export default function EventDetails() {
             <Profile
               name="Sanjjey A"
               email="sanjjeyarumugam@gmail.com"
-              profile_pic={profile_pic}
+              profile_pic={wild}
               phone="9443582753"
             />
             <Profile
               name="Mukesh Charan M"
               email="mukeshcharanskillboost@gmail.com"
-              profile_pic={profile_pic} 
+              profile_pic={mugi} 
               phone="6381764163"
             />
           </motion.div>

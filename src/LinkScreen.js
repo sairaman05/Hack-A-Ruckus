@@ -6,8 +6,9 @@ import CustomCursor from "./CustomCursor";
 export default function LinkScreen({ scrollToSection }) {
   return (
     <>
+    <div className="wholeclass">
       {/* Red Section */}
-      <div className="red-section">
+      <div className="red-section" style={{ marginTop: '30px' }}>
         <div className="logo-container">
           <h1 className="logo-text">NEUR</h1>
           <img 
@@ -66,6 +67,7 @@ export default function LinkScreen({ scrollToSection }) {
           </div>
         </div>
       </div>
+    </div>
     </>
   );
 }

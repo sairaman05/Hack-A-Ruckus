@@ -2,16 +2,17 @@
 .red-section {
   padding: 60px 0;
   text-align: center;
-  height: 10%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  height: 0%;
+  bottom: 0;
 }
 
 .logo-container {
   display: flex;
-  align-items: top;
   justify-content: center;
+  align-items: flex-end;
   gap: 40px; 
+  height: 100%;
+  bottom: 0;
 }
 
 .logo-text {
@@ -46,6 +47,10 @@
   line-height: 1.4;
 }
 
+.wholeclass{
+  bottom: 0;
+}
+
 .black-section {
   background: linear-gradient(45deg, #2c2c2c, #000000);
   padding: 60px 10%;
@@ -54,6 +59,7 @@
   color: white;
   flex-wrap: wrap;
   gap: 100px;
+  bottom: 0;
 }
 
 .footer-column {
