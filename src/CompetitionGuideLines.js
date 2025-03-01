@@ -89,7 +89,7 @@ export default function CompetitionGuideLines() {
 
   return (
     <div>
-    <div className="Head">
+    <div>
         <h1 className="Head" style={{
         fontSize: '4rem',
         background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
@@ -104,14 +104,12 @@ export default function CompetitionGuideLines() {
         borderTop: '3px solid #ff6b6b',
         borderRadius: '8px',
         transition: 'all 0.4s ease-in-out',
-        position: 'relative',
-        margin: '2rem 0',
+        margin: '2rem auto', // Changed from 2rem 0
         textAlign: 'center',
         transform: 'rotate(-0.5deg)',
-        display: "flex",
-        justifyContent: "center",
-        width:"700px",
-        position:"static",
+        width: "700px",
+        display: 'block', // Changed from flex
+        transformOrigin: 'center center', // Added
       }}>
         COMPETITION GUIDELINES
       </h1>

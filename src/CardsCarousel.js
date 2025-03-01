@@ -9,7 +9,7 @@ const data = [
   { image: 'sangi.jpg', title: 'Sponsor-6', description: 'Information about the Sponsors' },
 ];
 
-function Card({ image, title, description }) {
+function Card({ image, title, description, isMobile }) {
   return (
     <div className="card">
       <div className="card-image" style={{ backgroundImage: `url(${image})` }}>
@@ -24,7 +24,7 @@ function Card({ image, title, description }) {
   );
 }
 
-export function CardsCarousel() {
+export function CardsCarousel({ isMobile }) {
   const [index, setIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -37,66 +37,49 @@ export function CardsCarousel() {
   };
 
   useEffect(() => {
-    if (!isHovered) {
+    if (!isHovered && !isMobile) {
       const interval = setInterval(handleNext, 5000);
       return () => clearInterval(interval);
     }
-  }, [isHovered, index]);
+  }, [isHovered, index, isMobile]);
 
   const calculatePosition = (i) => {
     const position = i - index;
     const total = data.length;
     
-    let angle = (position * 180) / total;
+    let angle = (position * (isMobile ? 120 : 180)) / total;
     if (angle > 90) angle = 180 - angle;
     if (angle < -90) angle = -180 - angle;
     
     return {
-      rotateY: angle,
-      translateZ: position !== 0 ? Math.cos(Math.abs(angle) * Math.PI / 180) * 600 - 200 : 0,
-      translateX: position * 160,
+      rotateY: isMobile ? angle * 0.5 : angle,
+      translateZ: position !== 0 ? 
+        Math.cos(Math.abs(angle) * Math.PI / 180) * (isMobile ? 300 : 600) - (isMobile ? 100 : 200) : 0,
+      translateX: position * (isMobile ? 80 : 160),
       opacity: 1 - Math.abs(position) * 0.3,
       zIndex: data.length - Math.abs(position),
-      scale: 1 - Math.abs(position) * 0.15
+      scale: isMobile ? (1 - Math.abs(position) * 0.25) : (1 - Math.abs(position) * 0.15)
     };
   };
 
   return (
     <div 
       className="carousel-container"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => !isMobile && setIsHovered(true)}
+      onMouseLeave={() => !isMobile && setIsHovered(false)}
     >
       <h1 className="Head" style={{
-        display: "flex",
-      fontSize: '4rem',
-      background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
-      WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-      fontFamily: "'Bebas Neue', cursive",
-      fontWeight: 400,
-      letterSpacing: '6px',
-      textShadow: '2px 3px 5px rgba(0,0,0,0.2)',
-      padding: '0 2rem',
-      borderBottom: '3px solid #4ecdc4',
-      borderTop: '3px solid #ff6b6b',
-      borderRadius: '8px',
-      transition: 'all 0.4s ease-in-out',
-      position: 'relative',
-      margin: '2rem 0',
-      textAlign: 'center',
-      transform: 'rotate(-0.5deg)',
-      width: "700px",
-      justifyContent: "center",
-      alignItems: "center",
-      position: "relative",
-      left: "24%",
-    }}>
-      OUR VALUED SPONSORS
-    </h1>
+        fontSize: isMobile ? '2.5rem' : '4rem',
+        width: isMobile ? '90%' : '700px',
+        left: isMobile ? '5%' : '24%',
+        margin: isMobile ? '1rem 0' : '2rem 0',
+        padding: isMobile ? '0 1rem' : '0 2rem',
+      }}>
+        OUR VALUED SPONSORS
+      </h1>
       <div className="carousel-wrapper">
-        <button className="nav-button prev" onClick={handlePrev} aria-label="Previous" />
-        <button className="nav-button next" onClick={handleNext} aria-label="Next" />
+        <button className={`nav-button prev ${isMobile ? 'mobile' : ''}`} onClick={handlePrev} aria-label="Previous" />
+        <button className={`nav-button next ${isMobile ? 'mobile' : ''}`} onClick={handleNext} aria-label="Next" />
         
         <div className="cards-stage">
           {data.map((item, i) => {
@@ -111,10 +94,12 @@ export function CardsCarousel() {
                              translateX(${style.translateX}px)
                              scale(${style.scale})`,
                   opacity: style.opacity,
-                  zIndex: style.zIndex
+                  zIndex: style.zIndex,
+                  width: isMobile ? '280px' : '400px',
+                  height: isMobile ? '350px' : '500px'
                 }}
               >
-                <Card {...item} />
+                <Card {...item} isMobile={isMobile} />
               </div>
             );
           })}

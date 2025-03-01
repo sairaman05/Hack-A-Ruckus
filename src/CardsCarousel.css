@@ -9,21 +9,36 @@
 }
 
 .Head {
+  display: flex;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Bebas Neue', cursive;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-shadow: 2px 3px 5px rgba(0,0,0,0.2);
+  border-bottom: 3px solid #4ecdc4;
+  border-top: 3px solid #ff6b6b;
+  border-radius: 8px;
+  transition: all 0.4s ease-in-out;
   position: relative;
+  text-align: center;
+  transform: rotate(-0.5deg);
+  justify-content: center;
+  align-items: center;
   animation: subtle-float 4s ease-in-out infinite;
 }
 
-  @keyframes subtle-float {
-    0%, 100% { transform: translateY(0) rotate(-0.5deg); }
-    50% { transform: translateY(-5px) rotate(0.5deg); }
-  }
+@keyframes subtle-float {
+  0%, 100% { transform: translateY(0) rotate(-0.5deg); }
+  50% { transform: translateY(-5px) rotate(0.5deg); }
+}
 
-  .Head:hover {
-    transform: scale(1.02) rotate(0deg);
-    text-shadow: 2px 3px 7px rgba(0,0,0,0.3);
-    border-color: #ff6b6b #4ecdc4;
-  }
-  
+.Head:hover {
+  transform: scale(1.02) rotate(0deg);
+  text-shadow: 2px 3px 7px rgba(0,0,0,0.3);
+  border-color: #ff6b6b #4ecdc4;
+}
 
 .carousel-wrapper {
   position: relative;
@@ -49,8 +64,6 @@
   transform-style: preserve-3d;
   transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   cursor: pointer;
-  width: 400px;
-  height: 500px;
 }
 
 .card {
@@ -91,19 +104,6 @@
   padding: 2.5rem 2rem;
   position: relative;
   background: white;
-}
-
-.card-badge {
-  position: absolute;
-  top: -20px;
-  right: 20px;
-  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-  color: white;
-  padding: 8px 20px;
-  border-radius: 25px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
 }
 
 .card-title {
@@ -165,20 +165,6 @@
   background: #4ecdc4;
 }
 
-.nav-button.prev::before {
-  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='%234a5568' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 18l-6-6 6-6'/%3E%3C/svg%3E");
-  transform: translateX(-2px);
-}
-
-.nav-button.next::before {
-  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='%234a5568' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18l6-6-6-6'/%3E%3C/svg%3E");
-  transform: translateX(2px);
-}
-
-.nav-button:hover::before {
-  stroke: white;
-}
-
 .nav-button::before {
   position: absolute;
   width: 32px;
@@ -198,16 +184,20 @@
   .carousel-container {
     padding: 1rem;
     margin: 4rem auto;
+    perspective: 1000px;
   }
   
-  .carousel-header {
-    font-size: 2.4rem;
-    margin-bottom: 3rem;
+  .carousel-wrapper {
+    min-height: 400px;
   }
   
   .nav-button {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .nav-button.mobile {
+    top: 60%;
   }
   
   .prev {
@@ -218,24 +208,67 @@
     right: 15px;
   }
   
-  .card-container {
-    width: 320px;
-    height: 420px;
-  }
-  
   .card-image {
-    height: 240px;
+    height: 200px;
   }
   
   .card-content {
-    padding: 1.8rem 1.5rem;
+    padding: 1.5rem;
   }
   
   .card-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   
   .card-description {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Head {
+    font-size: 2rem !important;
+    letter-spacing: 2px;
+    width: 95% !important;
+    left: 2.5% !important;
+  }
+  
+  .carousel-container {
+    margin: 2rem auto;
+  }
+  
+  .nav-button {
+    width: 40px;
+    height: 40px;
+    top: 70%;
+  }
+  
+  .nav-button::before {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .card-container {
+    width: 240px !important;
+    height: 300px !important;
+  }
+  
+  .card-image {
+    height: 160px;
+  }
+  
+  .card-content {
+    padding: 1rem;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .card-description {
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
 }

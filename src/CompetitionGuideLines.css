@@ -71,21 +71,21 @@
   text-align: left;
 }
 
-.Head {
+Head {
   position: relative;
   animation: subtle-float 4s ease-in-out infinite;
 }
 
-  @keyframes subtle-float {
-    0%, 100% { transform: translateY(0) rotate(-0.5deg); }
-    50% { transform: translateY(-5px) rotate(0.5deg); }
-  }
+@keyframes subtle-float {
+  0%, 100% { transform: translateY(0) rotate(-0.5deg); }
+  50% { transform: translateY(-5px) rotate(0.5deg); }
+}
 
-  .Head:hover {
-    transform: scale(1.02) rotate(0deg);
-    text-shadow: 2px 3px 7px rgba(0,0,0,0.3);
-    border-color: #ff6b6b #4ecdc4;
-  }
+Head:hover {
+  transform: scale(1.02) rotate(-0.5deg); // Keep original rotation on hover
+  text-shadow: 2px 3px 7px rgba(0,0,0,0.3);
+  border-color: #ff6b6b #4ecdc4;
+}
 
 /*  Random Compile  */
 

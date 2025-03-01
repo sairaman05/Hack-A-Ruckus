@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { motion, progress } from "framer-motion";
 import Profile from "./Profile";
 import profile_pic from "./profile_pic.jpg"
+import shankar from "./shankar.jpg";
+import wild from "./wild.jpg";
+import vicky from "./vigneshwarran.jpg";
 import CustomCursor from "./CustomCursor";
 
 export default function EventDetails() {
@@ -309,7 +312,7 @@ export default function EventDetails() {
             <Profile
               name="Mukesh Charan M"
               email="mukeshcharanskillboost@gmail.com"
-              profile_pic={profile_pic}
+              profile_pic={profile_pic} 
               phone="6381764163"
             />
           </motion.div>
