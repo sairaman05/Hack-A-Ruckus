@@ -53,12 +53,13 @@
 
 .black-section {
   background: linear-gradient(45deg, #2c2c2c, #000000);
-  padding: 60px 10%;
+  padding: 30px 10%;
   display: flex;
   justify-content: space-between;
+  align-content: center;
   color: white;
   flex-wrap: wrap;
-  gap: 100px;
+  gap: 10px;
   bottom: 0;
 }
 
