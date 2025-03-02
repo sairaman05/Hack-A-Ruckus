@@ -3,6 +3,7 @@ import './Welcome.css';
 import CustomCursor from './CustomCursor';
 import { auth } from './utils/firebase.utils';
 import { FaUserCircle } from 'react-icons/fa';
+import Logo from "./neuronix.png";
 
 const Welcome = () => {
   return (
@@ -18,7 +19,7 @@ const Welcome = () => {
         <h1>
           <span className="animated-text">We present you</span> <br />
           <span className="animated-text">FIASCOde</span> <br /> & <br />
-          <span className="animated-text">RANDOM COmPilE</span>
+          <span className="animated-text">RANDOM (COmPilE)</span>
         </h1>
       </div>
     </div>
