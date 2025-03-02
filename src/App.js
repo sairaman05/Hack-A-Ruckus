@@ -11,7 +11,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import TeamForm from "./TeamForm";
 import HomeStack from "./HomeStack";
 import { Analytics } from "@vercel/analytics/react";
-
+import CustomCursor from "./CustomCursor";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -30,6 +30,7 @@ const App = () => {
 
   return (
     <Router>
+      <CustomCursor />
       <Analytics />
       <Routes>
         <Route

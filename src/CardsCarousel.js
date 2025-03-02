@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './CardsCarousel.css';
+import iim from "./iim.png";
+import amrita from "./amrita.png";
 
 const data = [
-  { image: 'sangi.jpg', title: 'Sponsor-1', description: 'Information about the Sponsors' },
-  { image: 'sangi.jpg', title: 'Sponsor-2', description: 'Information about the Sponsors' },
-  { image: 'sangi.jpg', title: 'Sponsor-3', description: 'Information about the Sponsors' },
-  { image: 'sangi.jpg', title: 'Sponsor-4', description: 'Information about the Sponsors' },
-  { image: 'sangi.jpg', title: 'Sponsor-6', description: 'Information about the Sponsors' },
+  { image: iim, title: '2IIM - CAT Preparation Institute', description: 'Aim for excellence, Success will follow. You can prepare with us no matter where you are in the world.' },
+  { image: amrita, title: 'Amrita Vishwa Vidyapeetham - Chennai', description: '7th Ranked university in India by NIRF 2024, Amrita is a NAAC A++ grade university spread across 9 campuses in 5 states.' },
 ];
 
 function Card({ image, title, description, isMobile }) {
@@ -38,7 +37,7 @@ export function CardsCarousel({ isMobile }) {
 
   useEffect(() => {
     if (!isHovered && !isMobile) {
-      const interval = setInterval(handleNext, 5000);
+      const interval = setInterval(handleNext, 3000);
       return () => clearInterval(interval);
     }
   }, [isHovered, index, isMobile]);
@@ -53,9 +52,8 @@ export function CardsCarousel({ isMobile }) {
     
     return {
       rotateY: isMobile ? angle * 0.5 : angle,
-      translateZ: position !== 0 ? 
-        Math.cos(Math.abs(angle) * Math.PI / 180) * (isMobile ? 300 : 600) - (isMobile ? 100 : 200) : 0,
-      translateX: position * (isMobile ? 80 : 160),
+      translateZ: position !== 0 ? Math.cos(Math.abs(angle) * Math.PI / 180) * (isMobile ? 300 : 600) - (isMobile ? 80 : 150) : 0,
+      translateX: position * (isMobile ? 50 : 120),
       opacity: 1 - Math.abs(position) * 0.3,
       zIndex: data.length - Math.abs(position),
       scale: isMobile ? (1 - Math.abs(position) * 0.25) : (1 - Math.abs(position) * 0.15)
@@ -78,8 +76,9 @@ export function CardsCarousel({ isMobile }) {
         OUR VALUED SPONSORS
       </h1>
       <div className="carousel-wrapper">
-        <button className={`nav-button prev ${isMobile ? 'mobile' : ''}`} onClick={handlePrev} aria-label="Previous" />
-        <button className={`nav-button next ${isMobile ? 'mobile' : ''}`} onClick={handleNext} aria-label="Next" />
+        <button className={`nav-button prev ${isMobile ? 'mobile' : ''}`} onClick={handlePrev} aria-label="Previous">
+          <span className="arrow left"></span>
+        </button>
         
         <div className="cards-stage">
           {data.map((item, i) => {
@@ -104,6 +103,10 @@ export function CardsCarousel({ isMobile }) {
             );
           })}
         </div>
+
+        <button className={`nav-button next ${isMobile ? 'mobile' : ''}`} onClick={handleNext} aria-label="Next">
+          <span className="arrow right"></span>
+        </button>
       </div>
     </div>
   );

@@ -17,8 +17,8 @@ const Welcome = () => {
       <div className="welcome-text">
         <h1>
           <span className="animated-text">We present you</span> <br />
-          <span className="animated-text">Random Compile</span> <br /> & <br />
-          <span className="animated-text">FIASCOde</span>
+          <span className="animated-text">FIASCOde</span> <br /> & <br />
+          <span className="animated-text">RANDOM COmPilE</span>
         </h1>
       </div>
     </div>

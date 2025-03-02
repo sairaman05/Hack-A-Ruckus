@@ -25,6 +25,7 @@ const HomeScreen = ({onLogin}) => {
     { label: "Guidelines", page: 1 }, 
     { label: "Organizers", page: 1.9 },
     { label: "Sponsors", page: 3 },
+    {label: "Links", page: 4},
   ];
 
   const scrollToSection = (page) => {
@@ -96,7 +97,6 @@ const HomeScreen = ({onLogin}) => {
       {/* Main Content */}
       <div style={{ height: "100%" }}>
         <Parallax pages={5} ref={parallaxRef} style={{ top: "0", left: "0" }}>
-          {/* Keep existing parallax layers, they will scale automatically */}
           <ParallaxLayer
             offset={0}
             speed={0}

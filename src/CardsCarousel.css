@@ -107,16 +107,18 @@
 }
 
 .card-title {
-  font-size: 1.8rem;
+  font-size: 1rem;
   color: #2c3e50;
   margin-bottom: 1.2rem;
   font-weight: 800;
   letter-spacing: 0.5px;
+  text-align: center;
 }
 
 .card-description {
   color: #7f8c8d;
   font-size: 1.05rem;
+  text-align: center;
   line-height: 1.7;
   font-weight: 400;
   min-height: 60px;
@@ -159,6 +161,16 @@
   z-index: 100;
 }
 
+.nav-button .arrow {
+  position: absolute;
+  top: 45%;
+  left: 35%;
+  width: 12px;
+  height: 12px;
+  border-top: 3px solid #333;
+  border-right: 3px solid #333;
+}
+
 .nav-button:hover {
   transform: translateY(-50%) scale(1.15);
   box-shadow: 0 20px 40px rgba(0,0,0,0.2);
@@ -173,11 +185,11 @@
 }
 
 .prev {
-  left: 50px;
+  left: 250px;
 }
 
 .next {
-  right: 50px;
+  right: 250px;
 }
 
 @media (max-width: 768px) {

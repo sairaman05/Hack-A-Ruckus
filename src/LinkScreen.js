@@ -6,6 +6,7 @@ import CustomCursor from "./CustomCursor";
 export default function LinkScreen({ scrollToSection }) {
   return (
     <>
+   
     <div className="wholeclass">
       {/* Red Section */}
       <div className="red-section" style={{ marginTop: '30px' }}>
@@ -26,11 +27,11 @@ export default function LinkScreen({ scrollToSection }) {
           <h4>Get in touch with us!</h4>
           <div className="social-handles">
             <h5>LinkedIn</h5>
-            <p>@Neuronix Club AIE</p>
-            <p>@I R Oviya</p>
+            <a href="https://www.linkedin.com/in/neuronix/"> @ Neuronix Club AIE </a>
+            <a href="https://www.linkedin.com/in/dr-i-r-oviya-14179ab4/"> @ I R Oviya </a>
             <h5>Instagram</h5>
-            <p>@neuronix_ai</p>
-            <p>@oviya.ir</p>
+            <a href="https://www.instagram.com/neuronix_ai/"> @ neuronix_ai</a>
+            <a href="https://www.instagram.com/oviya.ir/"> @ oviya.ir </a>
           </div>
         </div>
 
@@ -60,6 +61,7 @@ export default function LinkScreen({ scrollToSection }) {
         </div>
       </div>
     </div>
+    <CustomCursor />
     </>
   );
 }

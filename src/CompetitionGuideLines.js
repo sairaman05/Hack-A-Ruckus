@@ -58,7 +58,7 @@ export default function CompetitionGuideLines() {
     {
       TITLE: "Time Limit",
       INFORMATION:
-        "Each round will have a strict time limit (1hr:30min), and submissions after the timer will not be accepted.",
+        "Each round will have a strict time limit (2 hrs), and submissions after the timer will not be accepted.",
     },
     {
       TITLE: "Communication",
@@ -78,12 +78,12 @@ export default function CompetitionGuideLines() {
     {
       TITLE: "Tie-Breakers",
       INFORMATION:
-        "the time taken to submit the solution will be considered as the judging factor.",
+        "the Time Taken to submit the solution will be considered as the judging factor.",
     },
     {
       TITLE: "Note",
       INFORMATION:
-        "Prelims will happen on unstop, selected candidates will reach our campus for offline coding challenge. From that finalist will be shortlisted and compete for the Price pool."
+        "Prelims will happen on unstop, selected candidates will reach our campus for offline coding challenge. From that finalist will be shortlisted and compete for the Prize pool."
     }
   ];
 
@@ -118,7 +118,7 @@ export default function CompetitionGuideLines() {
       <div> 
         <Competition logo={fiascode_logo} title={"FIASCOde"} information={FIAS_CODE} />
         <br />
-        <Competition logo={random_logo} title={"RaNDoM COmPilE"} information={RANDOM}/>
+        <Competition logo={random_logo} title={"RANDOM(COMPILE)"} information={RANDOM}/>
       </div>
     </div>
     </div>

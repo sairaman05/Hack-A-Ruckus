@@ -253,7 +253,7 @@ export default function EventDetails() {
                 }
               }}
             >
-              RANDOM COMPILE 
+              RANDOM(COMPILE) 
               <motion.span 
                 style={{
                   position: "absolute",
