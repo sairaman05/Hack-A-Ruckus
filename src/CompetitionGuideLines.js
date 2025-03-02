@@ -78,7 +78,7 @@ export default function CompetitionGuideLines() {
     {
       TITLE: "Tie-Breakers",
       INFORMATION:
-        "the Time Taken to submit the solution will be considered as the judging factor.",
+        "The Time Taken to submit the solution will be considered as the judging factor.",
     },
     {
       TITLE: "Note",
